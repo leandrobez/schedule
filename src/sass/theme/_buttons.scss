@@ -1,0 +1,118 @@
+.il-btn--group {
+    width: 100%;
+    padding: 0.45rem;
+    display: flex;
+    justify-content: center;
+    & a,
+    & button{
+        margin: 0 .3rem;
+    }
+}
+input[type='submit'],
+a.il-btn,
+button.il-btn {
+    font-size: 0.9em;
+    word-spacing: 2px;
+    font-weight: 700;
+    padding: 0.5rem 1.3rem;
+    background-color: $btn-background-color;
+    text-transform: uppercase;
+    border: 1px solid $btn-border-color;
+    transition: all 0.5s;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 4px;
+    visibility: visible;
+    &.left {
+        margin-left: 0;
+    }
+    &.right {
+        margin-right: 0;
+    }
+    &.auto {
+        margin: auto;
+    }
+    &.il-btn--login,
+    &.il-btn--register,
+    &.il-btn--promotion {
+        padding: 0.7rem 1.3rem;
+        background-color: #c76223;
+        color: white;
+        width: 100%;
+        text-transform: none;
+        border: none;
+        outline: none;
+    }
+    &.il-btn--transparent {
+        background-color: transparent;
+        border: 1px solid rgb(244, 227, 227);
+        color: $firstColor;
+        outline: none;
+    }
+    &.il-btn--account,
+    &.il-btn--promotion {
+        width: 100%;
+        color: #59eb10 !important;
+    }
+    &.il-btn--big {
+        width: 340px;
+        @media screen and (min-width: 1171px) {
+            width: 380px;
+        }
+    }
+    &.il-btn--small {
+        width: 240px;
+        padding: 0.15rem 0.7rem;
+        font-size: 0.89rem;
+        @media screen and (min-width: 1171px) {
+            width: 280px;
+        }
+    }
+    &.il-btn--save {
+        background-color: #3d557c;
+    }
+    &.il-btn--small,
+    &.il-btn--header {
+        color: white;
+    }
+    &.il-btn--submit {
+        background-color: #496797;
+        outline: none;
+    }
+}
+a.il-btn--account {
+    display: block;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    text-transform: none;
+}
+button.il-btn--promotion {
+    color: $firstColor;
+}
+
+/*a.il-btn--transparent {
+    background-color: transparent;
+    border: 1px solid rgb(244, 227, 227);
+    outline: none;
+}
+a.il-btn--account,
+a.il-btn--promotion {
+    width: 100%;
+}*/
+
+input[type='submit']:focus,
+a.il-btn:focus,
+button.il-btn:focus,
+a.il-btn:hover,
+button.il-btn:hover,
+input[type='submit']:hover {
+    background-color: $btn-background-color;
+    border: 1px solid $btn-border-color-hover;
+}
+
+input[type='submit'].il-btn.il-button--hidden,
+a.il-btn.il-button--hidden,
+button.il-btn.il-button--hidden {
+    visibility: hidden;
+}

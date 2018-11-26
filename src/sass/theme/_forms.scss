@@ -1,0 +1,99 @@
+.il-configuration {
+    padding: 0.45rem;
+    display: flex;
+    flex-direction: column;
+    form.il-form--configuration {
+        display: flex;
+        flex-direction: column;
+        & legend {
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+        }
+        & .il-form--fields {
+            padding: 0.45rem 0;
+            display: flex;
+            flex-direction: column;
+            & label {
+                font-size: 0.9rem;
+                color: black;
+                font-weight: bold;
+            }
+            & input[type='text'].il-input {
+                outline: none;
+                border: 1px solid rgb(131, 125, 125);
+                padding: 0.35rem 0.25rem;
+                width: 350px;
+                margin: 0.15rem 0;
+                font-size: 14px;
+                border-radius: 3px;
+                &:invalid,
+                &:required {
+                    border-color: #e88;
+                }
+            }
+        }
+        & i.il-field--add {
+            cursor: pointer;
+            color: blue;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+            &:hover {
+                font-weight: 700;
+                color: red;
+                padding: 0.25rem;
+                border: 1px solid #cdcdcd;
+            }
+        }
+    }
+}
+
+/**form login */
+.il-login--body form,
+.il-login--footer {
+    margin: 1rem 3rem;
+}
+
+.il-login--body form .il-form--fields {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    overflow: hidden;
+    & label.il-label {
+        font-size: 1rem;
+        color: $darkenColor;
+        margin-bottom: 0.5rem;
+    }
+    & select.il-form--select {
+        font-size: 0.95rem;
+        border-radius: 3px;
+        outline: none;
+        border: 1px solid rgb(131, 125, 125);
+        padding: 0.55rem 0.45rem;
+        color: rgb(65, 55, 55);
+        text-indent: 0.01px;
+        text-overflow: '';
+        margin: 0.15rem 0;
+    }
+
+    & input[type='text'].il-form--input,
+    & input[type='email'].il-form--input,
+    & input[type='password'].il-form--input {
+        outline: none;
+        border: 1px solid rgb(131, 125, 125);
+        padding: 0.55rem 0.45rem; //width: 350px;
+        margin: 0.15rem 0;
+        font-size: 0.95rem;
+        border-radius: 3px;
+        color: rgb(65, 55, 55);
+    }
+    & span.haserror{
+        background: #c0973e;
+        font-size: .85rem;
+        padding: .35rem;
+        margin-bottom: .15rem;
+        box-sizing: border-box;
+        color: #2e140e;
+
+    }
+}

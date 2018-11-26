@@ -1,0 +1,28 @@
+@import 'il-components/base/normalize';
+@include normalize();
+
+// Icons mdi
+@import 'mdi/materialdesignicons';
+
+/* Variables */
+
+@import 'config/variables';
+@import 'config/mixim';
+@import 'config/tipography';
+
+/* GRID */
+@import 'il-components/grid/geral';
+@import 'il-components/grid/grid';
+@import 'il-components/grid/section';
+
+/* LAYOUT OR THEME */
+
+@import 'theme/colors';
+@import 'theme/alerts';
+@import 'theme/buttons';
+@import 'theme/table';
+@import 'theme/load';
+
+/* Modules */
+@import 'il-components/modules/nav-main';
+@import 'il-components/modules/calendar';

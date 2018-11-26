@@ -1,0 +1,155 @@
+.il-calendar--content {
+  background: $back-content;
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  @media #{$medium-and-up} {
+    max-width: 280px;
+  }
+  @media #{$large-and-up} {
+    max-width: 320px;
+  }
+  transition: 0.9s;
+  .il-current--date {
+    border-bottom: 1px solid rgba(73, 114, 133, 0.6);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 5px 10px;
+  }
+
+  .il-current--date h1.il-year,
+  .il-current--date h1.il-today {
+    color: #dfebed;
+    font-size: 0.95rem;
+  }
+
+  @media screen and(min-width:600px) {
+    .il-current--date {
+      padding: 10px 20px;
+    }
+
+    .il-current--date h1.il-year,
+    .il-current--date h1.il-today {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and(min-width:800px) {
+    .il-current--date {
+      padding: 15px 25px;
+    }
+    .il-current--date h1.il-year,
+    .il-current--date h1.il-today {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+  }
+
+  @media screen and(min-width:1024px) {
+    .il-current--date {
+      padding: 20px 30px;
+      flex-direction: row;
+    }
+    
+    .il-current--date h1.il-year,
+    .il-current--date h1.il-today {
+      text-align: right;
+      width: 85%;
+      font-size: 1.3rem;
+    }
+
+    .il-current--date h1.il-year{
+      width: 15%;
+      text-align:left;
+    }
+  }
+  & .il-choices--month {
+    display: flex;
+    justify-content: space-between;
+    & i {
+      color: #dfebed;
+      display: block;
+      cursor: pointer;
+      margin: 0 0.5rem;
+    }
+  }
+  & .il-current--month {
+    padding: 20px 30px;
+    @media #{$medium-and-up} {
+      padding: 30px 40px;
+    }
+    & ul.il-weeks--days,
+    & .il-weeks {
+      font-size: 1rem;
+      @media #{$medium-and-up} {
+        font-size: 1.1rem;
+      }
+      @media #{$large-and-up} {
+        font-size: 1.25rem;
+      }
+      display: flex;
+      justify-content: space-between;
+    }
+    & ul.il-weeks--days {
+      width: 100%;
+      border-bottom: 1px dotted $week-color;
+      & li {
+        font-weight: 600;
+        text-align: center;
+        color: $week-color;
+      }
+    }
+    & .il-weeks {
+      flex-direction: column;
+      & .il-week--item {
+        display: flex;
+
+        font-weight: 300;
+        justify-content: space-between;
+        & span {
+          color: #dfebed;
+          line-height: 50px;
+          height: 50px;
+          text-align: center;
+          font-size: 1rem;
+          @media #{$medium-and-up} {
+            font-size: 1.1rem;
+          }
+          @media #{$large-and-up} {
+            font-size: 1.25rem;
+          }
+
+          &.il-last--month {
+            opacity: 0.3;
+          }
+          &.il-next--month {
+            color: $week-next;
+            opacity: 0.7;
+          }
+          &.il-day--active {
+            background: $week-active;
+            border: 1px solid white;
+          }
+          &.il-today {
+            color: $week-today;
+            font-weight: 700;
+            opacity: 0.8;
+          }
+          &:not(.il-today):hover,
+          &:not(.il-last-month):hover,
+          &:not(.il-next-month):hover {
+            cursor: pointer;
+            font-weight: 600;
+            border-radius: 50%;
+          }
+
+          &:hover {
+            color: $week-hover;
+          }
+        }
+      }
+    }
+  }
+}

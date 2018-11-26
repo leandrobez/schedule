@@ -1,0 +1,24 @@
+section.il-section {
+  padding: 0 0 1rem 0;
+  width: 100%;
+  height: 100%;
+  & h2.il-section--title {
+    font-weight: 500;
+    padding-top: 1rem;
+    text-align: center;
+  }
+  &.il-section--login {
+    position: relative;
+    padding-bottom: 0;
+    background: $secondColor;
+  }
+  &.il-section--calendar {
+    position: relative;
+    padding-bottom: 0;
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+  }
+}
+header.il-header {
+  border-bottom: 2px solid white;
+}

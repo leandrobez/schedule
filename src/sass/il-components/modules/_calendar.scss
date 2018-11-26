@@ -1,0 +1,83 @@
+/** mixin*/
+@function toPx($rem) {
+    $un: 16;
+    $convert: $un * $rem * 1px;
+    @return $convert;
+}
+
+/**metrics*/
+$calendar-height: 720px;
+$calendar-controller-height: 690px;
+$calendar-content-width: 420px;
+$li-height: $calendar-controller-height/21;
+$shadow-y: 15px;
+$width-time-line: 50px;
+$height-event-item: ($calendar-controller-height/10 - 0.9 * toPx(1));
+$padding-table-event: $width-time-line + $height-event-item + 7px;
+$search-content-width: 37.2%;
+$width-search: 100% - $search-content-width;
+$width-add-event: $height-event-item;
+
+/**color*/
+$week-color: #87d110;
+$week-today: #0aaf41;
+$week-active: #e7955a;
+$week-hover: #2aaaba;
+$week-next: #646880;
+$back-content: #2b4450;
+$back-content-dark: darken($back-content, 10%);
+$back-controller: #678797;
+$shadow: #c4baba;
+$line-event: #8698a1;
+$li-background: #948a8a;
+$li-background-plus: #89a6b4;
+$li-background-odd: #796a6a;
+$li-color: #1a2220;
+
+.il-calendar--container {
+    width: 100%;
+    height: $calendar-height;
+    align-items: center;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+	justify-content: space-between;
+    align-content: center;
+    @media #{$medium-and-up} {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1.5fr;
+    }
+    @media #{$medium-and-up} {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 2fr;
+    }
+    @media #{$extra-large-and-up} {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 3fr;
+    }
+    box-shadow: 5px 0px 7px 3px rgba(190, 186, 186, 0.6);
+    @import './partials/calendar-content';
+    @import './partials/calendar-controller';
+    @import './partials/calendar-edit';
+    & .il-events__btn {
+        grid-area: event-btn;
+        display: grid;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        & i {
+            background: $li-background-plus;
+            @media #{$medium-and-up} {
+                outline: 1px solid $shadow;
+            }
+            margin: auto .20rem;
+            width: calc(100% - px(.4));
+            &:hover {
+                background: $li-background-odd;
+                color: $shadow;
+                opacity: 0.8;
+            }
+        }
+    }
+}

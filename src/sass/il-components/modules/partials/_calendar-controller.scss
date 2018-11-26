@@ -1,0 +1,109 @@
+//$width-calendar-controller: calc(100% - $calendar-content-width) * 1px;
+:root{
+    --w-calendar-controller: calc(100% - $calendar-content-width) * 1px;
+}
+.il-calendar--controller {
+    width: 100%;
+    max-width: var(--w-calendar-controller);
+    height: 100%;
+    background: $back-controller;
+    border-radius: 0 4px 4px 0;
+    padding: 0 0 0 0.5rem;
+    position: relative;
+    & h4 {
+        text-align: center;
+        color: #e1e7e9;
+        font-size: 1rem;
+        width: 100%;
+        border-bottom: 1px solid $line-event;
+        margin-bottom: 0.2rem;
+    }
+    & .il-calendar--controller__content {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        & .il-events__list {
+            width: 100%;
+            border-bottom: 1px dotted #12acab;
+            display: grid;
+            grid-template-areas: 'time-line event-btn event-list';
+            grid-template-columns: 6% 6.5% 1fr;
+            position: relative;
+            & .il-events__time-line {
+                grid-area: time-line;
+                padding: 0 0.15rem;
+                height: 100%;
+                & span {
+                    display: block;
+                    width: 100%;
+                    font-size: 0.89rem;
+                    position: relative;
+                    text-align: center;
+    
+                    &:first-child:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background: $line-event;
+                        z-index: 2;
+                    }
+                }
+            }
+
+            & .il-events__item {
+                grid-area: event-list;
+                position: absolute;
+                width: 0;
+                height: 100%;
+                left: -100%;
+                padding: 0.15rem 0.25rem;
+                color: #1a2220;
+                transition: 500ms;
+                & table {
+                    visibility: hidden;
+                }
+                &.il-show__event {
+                    width: 100%;
+                    left: 0;
+                    background: lighten(#678797, 4%);
+                    & table {
+                        visibility: visible;
+                        font-size: .75rem !important;
+                    }
+                }
+            }
+        }
+       
+    }
+    @import './calendar-search';    
+    @import './calendar-params';
+    & a.il-btn--flat {
+        display: block;
+        outline: 0;
+        text-align: center;
+        background-color: #292323;
+        box-shadow: none;
+        position: fixed;
+        top: 35%;
+        right: 180px;
+        height: 35px;
+        width: 35px;
+        overflow: hidden;
+        z-index: 1;
+        border-radius: 50%;
+
+        &:hover {
+            background-color: green;
+            color: white;
+        }
+        &:focus {
+            background-color: maroon;
+        }
+        & i {
+            line-height: inherit;
+        }
+    }
+}

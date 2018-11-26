@@ -1,0 +1,28 @@
+#app{
+    display: flex;
+    flex-direction: column;
+}
+.il-container{
+	display: grid;
+    grid-auto-rows: auto;
+    & .il-container--wrapper{
+    	width: 100%;
+        max-width: $max-width;
+        margin: 0;
+        @media #{$smaller-and-up} {
+            //$lat: (100% - 94%) / 2;
+            width: 94%;
+            margin: 0 auto;
+        }
+        @media #{$medium-and-up} {
+            //$lat: (100% - 86%) / 2;
+            width: 90%;
+            margin: 0 auto;
+        }
+        @media #{$large-and-up} {
+            //$lat: (100% - 76%) / 2;
+            width: 86%;
+            margin: 0 auto;
+        }
+    }
+}
