@@ -9524,7 +9524,7 @@ header.il-header {
   opacity: 0;
   -webkit-transition: 550ms;
   transition: 550ms;
-  top: -15%;
+  top: -5%;
   left: 0;
 }
 
@@ -9585,7 +9585,7 @@ header.il-header {
   position: absolute;
   z-index: 4;
   display: block;
-  top: 25vh;
+  top: 30vh;
   opacity: 0.9;
 }
 

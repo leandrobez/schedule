@@ -109,46 +109,22 @@ export default {
                     ' foram salvos na sua agenda.'
                 this.setParentAlert(msgType, msg)
 
-                console.log(agenda);
+                //console.log(agenda);
 
             } else {
-                /**check if exist events for dayCurrent or other events */
-                let agenda = JSON.stringify(agenda);
-                //*run array and search currentMonth*/
+                let msgType = 'success',
+                    msg = 'Não há eventos para ' +
+                    this.currentDates.currentDay +
+                    '. Crie agora.'
+                this.setParentAlert(msgType, msg)
             }
-            /*let containerAlert = document.querySelector('.il-alert');
-            let alertInfo = document.querySelector('.il-alert p');
-            let currentCronogram = cronogram;
-            let newAgendaMonth = {
-                month: window.localStorage.getItem('monthCurrent'),
-                cronogram: null
-            };
-            newAgendaMonth.cronogram = new Array();
-            newAgendaMonth.cronogram.push(currentCronogram);
-            agenda.push(newAgendaMonth);
-            let data = JSON.stringify(agenda);
-            if (!window.localStorage.getItem('agenda')) {
-                window.localStorage.setItem('agenda', data);
-            } else {
-                alert('jácriada a agenda');
-            }
-            alertInfo.innerHTML =
-                'Os eventos do dia ' +
-                window.localStorage.getItem('dayCurrent') +
-                ' foram salvos na sua agenda.';
-            containerAlert.classList.add('il-alert--show');
-            containerAlert.classList.add('il-alert--posisione');
-            setTimeout(() => {
-                alertInfo.innerHTML = 'O arquivo foi salvo com sucesso.';
-                containerAlert.classList.remove('il-alert--show');
-                containerAlert.classList.remove('il-alert--posisione');
-            }, 4000);*/
+
         },
 
         checkHasSchedule() {
             this.$parent.showLoad = true;
             let msgType = 'info',
-            msg = 'Aguarde enquanto o sistema sincroniza a sua agenda...';
+                msg = 'Aguarde enquanto o sistema sincroniza a sua agenda...';
             this.$parent.setAlerts(msgType, msg);
             //check if has agenda in localStorage
             let agenda = window.localStorage.getItem('agenda') ? JSON.parse(window.localStorage.getItem('agenda')) : null;
@@ -160,17 +136,22 @@ export default {
                         cronograms.forEach(days => {
                             if (days.day == this.currentDates.currentDay) {
                                 timeLineForToday = days.details;
+                            } else {
+                                this.notAgenda();
                             }
                         })
+                    } else {
+                        this.notAgenda();
                     }
                 });
                 if (timeLineForToday.length > 0) {
-                    console.log(timeLineForToday)
+                    //console.log(timeLineForToday)
                     this.makeEvents(timeLineForToday);
+                } else {
+                    this.notAgenda()
                 }
             } else {
-                 this.hasSchedule = false
-                console.log('Nada para sincronizar')
+                this.notAgenda()
             }
 
         },
@@ -182,10 +163,20 @@ export default {
                     cronogram: detail.events
                 })
             });
-            setTimeout( () => {
+            setTimeout(() => {
                 this.hasSchedule = true
                 this.$parent.showLoad = false;
-            },3000)
+            }, 3000)
+        },
+
+        notAgenda() {
+            setTimeout(() => {
+                this.hasSchedule = false;
+                this.$parent.showLoad = false;
+            }, 1000);
+            let msgType = 'warning',
+                msg = 'Não existem eventos para esse dia. Crie agora...';
+            this.$parent.setAlerts(msgType, msg);
         }
 
     }

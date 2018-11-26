@@ -113,6 +113,7 @@ $RECYCLE.BIN/
 
 # ELectron binary
 release-builds
+installers
 
 structure.sh
 
