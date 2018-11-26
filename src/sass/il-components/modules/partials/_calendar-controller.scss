@@ -72,6 +72,10 @@
                     & table {
                         visibility: visible;
                         font-size: .75rem !important;
+                        & a {
+                            text-decoration:none;
+                            color: #453121;
+                        }
                     }
                 }
             }

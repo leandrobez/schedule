@@ -99,6 +99,8 @@ export default {
             });
             spanHtml[i][k].divClass = 'il-today';
             this.listWeeks = spanHtml;
+            /**check for agenda */
+            this.$parent.checkHasSchedule();
 
         },
 

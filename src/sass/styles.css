@@ -9524,7 +9524,7 @@ header.il-header {
   opacity: 0;
   -webkit-transition: 550ms;
   transition: 550ms;
-  top: -20%;
+  top: -15%;
   left: 0;
 }
 
@@ -9951,7 +9951,7 @@ nav.il-nav {
   display: flex;
   margin-bottom: 10px;
   padding: 0 0.5rem;
-  border-bottom: 1px solid #456bbb;
+  border-top: 1px solid #456bbb;
 }
 
 nav.il-nav a {
@@ -10342,6 +10342,11 @@ nav.il-nav a.il-generic--anchor.il-anchor--active {
 .il-calendar--container .il-calendar--controller .il-calendar--controller__content .il-events__list .il-events__item.il-show__event table {
   visibility: visible;
   font-size: .75rem !important;
+}
+
+.il-calendar--container .il-calendar--controller .il-calendar--controller__content .il-events__list .il-events__item.il-show__event table a {
+  text-decoration: none;
+  color: #453121;
 }
 
 .il-calendar--container .il-calendar--controller .il-calendar--search {

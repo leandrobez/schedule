@@ -1,12 +1,14 @@
 <template>
 <header class="il-container--item il-header il-color-background--tertiary__alt">
-    <nav class="il-nav">
-        <router-link :to="{name:'calendar'}" :class="getLinkClass('calendar')">Calendário</router-link>
-        <router-link :to="{name:'report'}" :class="getLinkClass('report')">Relatório</router-link>
-    </nav>
+   
     <div class="il-container--wrapper">
         <h1 class="text-center il-color-texture--border il-section--title">{{title}}</h1>
     </div>
+
+     <nav class="il-nav">
+        <router-link :to="{name:'calendar'}" :class="getLinkClass('calendar')">Calendário</router-link>
+        <router-link :to="{name:'report'}" :class="getLinkClass('report')">Relatório</router-link>
+    </nav>
 </header>
 </template>
 

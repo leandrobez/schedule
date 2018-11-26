@@ -51,6 +51,8 @@ export default {
                 currentYear: null,
                 currentMonth: null
             },
+            hasSchedule: false,
+            timeLineForToday: [],
             newSchedule: []
         }
     },
@@ -143,12 +145,47 @@ export default {
             }, 4000);*/
         },
 
-        checkHasSchedule(){
+        checkHasSchedule() {
+            this.$parent.showLoad = true;
+            let msgType = 'info',
+            msg = 'Aguarde enquanto o sistema sincroniza a sua agenda...';
+            this.$parent.setAlerts(msgType, msg);
             //check if has agenda in localStorage
-            //if(window.localStorage.getItem('agenda')){
-                let agenda = window.localStorage.getItem('agenda')
-            //}
+            let agenda = window.localStorage.getItem('agenda') ? JSON.parse(window.localStorage.getItem('agenda')) : null;
+            let timeLineForToday = [];
+            if (agenda) {
+                agenda.forEach(items => {
+                    if (items.month == this.currentDates.currentMonth) {
+                        let cronograms = items.cronogram;
+                        cronograms.forEach(days => {
+                            if (days.day == this.currentDates.currentDay) {
+                                timeLineForToday = days.details;
+                            }
+                        })
+                    }
+                });
+                if (timeLineForToday.length > 0) {
+                    console.log(timeLineForToday)
+                    this.makeEvents(timeLineForToday);
+                }
+            } else {
+                 this.hasSchedule = false
+                console.log('Nada para sincronizar')
+            }
 
+        },
+
+        makeEvents(timeLineForToday) {
+            timeLineForToday.forEach(detail => {
+                this.timeLineForToday.push({
+                    keyTimeLine: detail.timeLine,
+                    cronogram: detail.events
+                })
+            });
+            setTimeout( () => {
+                this.hasSchedule = true
+                this.$parent.showLoad = false;
+            },3000)
         }
 
     }

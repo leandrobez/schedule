@@ -116,6 +116,7 @@ export default {
 
     mounted() {
         this.makeTimeline();
+        this.makeEventsForToday();
     },
 
     data() {
@@ -273,15 +274,36 @@ export default {
             this.setEventClass(this.currentEvent)
         },
 
-        saveSchedule(){
+        saveSchedule() {
             let confirm = window.confirm('Realmente deseja fechar os eventos para o dia ' + this.currentDates.currentDay + ' ?');
-            if(confirm){
+            if (confirm) {
                 this.$parent.newSchedule = this.schedule;
                 this.$parent.saveSchedule()
             } else {
                 return
             }
-            
+
+        },
+
+        makeEventsForToday() {
+            if (this.$parent.hasSchedule) {
+                let timeLine = this.$parent.timeLineForToday;
+                let currentEvent = null;
+                timeLine.forEach((line, index) => {
+                    this.timeLine[line.keyTimeLine].hasEvent = true;
+                    this.timeLine[line.keyTimeLine].keySchedule = index;
+                    this.timeLine[line.keyTimeLine].cronogram = line.cronogram;
+                    this.events[line.keyTimeLine] = {
+                        statusPlus: 'none',
+                        statusMinus: 'block'
+                    };
+                    currentEvent = line.keyTimeLine
+                });
+                this.schedule = this.$parent.timeLineForToday;
+                this.currentEvent = currentEvent;
+                this.hasEventsAndSchedule = true;
+                this.setEventClass(this.currentEvent)
+            }
         }
 
     }
